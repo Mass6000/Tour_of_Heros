@@ -1,0 +1,14 @@
+<h2>My Heroes</h2>
+
+<ul class="heroes">
+<!--  <li *ngFor="let hero of heroes"-->
+<!--  below is best practice using the async pipe-->
+<!--  does the unsubscribe for you-->
+  <li *ngFor="let hero of heroe$ | async"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
